@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>http1.1</h1>
+  <div class="http1"></div>
+  <h1>http2</h1>
+  <div class="http2"></div>
+  <script>
+    const count = 200;
+    for (let i = 0; i < count; i ++) {
+      const img = document.createElement('img');
+      img.src = 'http://192.168.22.175:3001/' + i + '.jpg';
+      document.querySelector('.http1').appendChild(img);
+    }
+    for (let i = 0; i < count; i ++) {
+      const img = document.createElement('img');
+      img.src = 'https://192.168.22.175:3000/' + i + '.jpg';
+      document.querySelector('.http2').appendChild(img);
+    }
+    for (let i = 0; i < 1; i ++) {
+      const img = document.createElement('script');
+      img.src = '/index.js?v=' + i;
+      document.body.appendChild(img);
+    }
+  </script>
+</body>
+
+</html>
