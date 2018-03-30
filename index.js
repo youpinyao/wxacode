@@ -9,6 +9,11 @@ const app = express();
 
 const wxacode = require('./src/wxacode');
 const wxaqrcode = require('./src/wxaqrcode');
+const jscode2session = require('./src/jscode2session');
+
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(logger('dev'));
 
@@ -46,6 +51,12 @@ app.get('/wxacode', function (req, res) {
 
 app.get('/wxaqrcode', function (req, res) {
   wxaqrcode(req, res);
+});
+app.get('/jscode2session', function (req, res) {
+  jscode2session(req, res);
+});
+app.post('/jscode2session', function (req, res) {
+  jscode2session(req, res);
 });
 
 const server1 = app.listen(3001, function () {
