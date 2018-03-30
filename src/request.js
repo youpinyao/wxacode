@@ -64,7 +64,7 @@ function get(options) {
     delete options.url;
   }
 
-  const data = options.data || options.body || option.form;
+  const data = options.data || options.body || options.form || {};
   const dataArr = [];
 
   data._ = +new Date();
@@ -73,7 +73,7 @@ function get(options) {
     dataArr.push(`${d}=${data[d]}`);
   });
 
-  options.uri = `${options.uri}?${dataArr.join('&')}`;
+  options.uri = `${options.uri}${/\?/g.test(options.uri) ? '&' : '?'}${dataArr.join('&')}`;
   options.method = 'GET';
 
   delete options.body;
