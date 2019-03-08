@@ -11,7 +11,7 @@ app.get('/wxaqrcode', function (req, res) {
   wxaqrcode(req, res);
 });
 
-const server = app.listen(3000, function () {
+const server = app.listen(7001, function () {
   const host = server.address().address;
   const port = server.address().port;
 
